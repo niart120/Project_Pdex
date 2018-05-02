@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="400.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2">
+  <children>
+    <TabPane layoutX="0.0" layoutY="0.0" prefHeight="600.0" prefWidth="400.0" tabClosingPolicy="UNAVAILABLE">
+      <tabs>
+        <Tab style="-fx-background-color:#FE8E8E" text="ポケモン管理">
+          <content>
+            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color:#FEDEDE">
+              <children>
+                <TableView layoutX="0.0" layoutY="48.0" prefHeight="497.0" prefWidth="400.0">
+                  <columns>
+                    <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="120.0" text="名前" />
+                    <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="280.0" text="列X" />
+                  </columns>
+                </TableView>
+                <Button layoutX="359.0" layoutY="14.0" minWidth="27.0" mnemonicParsing="false" prefWidth="27.0" text="" />
+              </children>
+            </AnchorPane>
+          </content>
+        </Tab>
+        <Tab style="-fx-background-color:#8E8EFE" text="パーティ管理">
+          <content>
+            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color:#DEDEFE">
+              <children>
+                <TableView layoutX="0.0" layoutY="48.0" prefHeight="497.0" prefWidth="400.0">
+                  <columns>
+                    <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="120.0" text="名前" />
+                    <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="280.0" text="列X" />
+                  </columns>
+                </TableView>
+              </children>
+            </AnchorPane>
+          </content>
+        </Tab>
+      </tabs>
+    </TabPane>
+  </children>
+</AnchorPane>
