@@ -12,7 +12,7 @@ public class Data {
 
 	public Data(){
 		 try {
-		      File f = new File("Pokemon.csv");
+		      File f = new File("./lib/pokemon.csv");
 		      BufferedReader br = new BufferedReader(new FileReader(f));
 		      String line;
 		      while ((line = br.readLine()) != null) {
@@ -29,7 +29,7 @@ public class Data {
 		    }
 
 		 try {
-		      File f = new File("Moves.csv");
+		      File f = new File("./lib/moves.csv");
 		      BufferedReader br = new BufferedReader(new FileReader(f));
 		      String line;
 		      while ((line = br.readLine()) != null) {
