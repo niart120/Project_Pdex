@@ -24,4 +24,5 @@ public abstract class Controller {
 			observer.update(this);
 		}
 	}
+	public abstract void show();
 }
