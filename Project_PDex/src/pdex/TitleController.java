@@ -7,30 +7,36 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.paint.Color;
 
-public class TitleController extends Controller {
+public class TitleController {
 
-	private static final Scene SCENE;
 	private static final TitleController instance;
-	static{
-		FXMLLoader fxmlLoader = new FXMLLoader(ClassLoader.getSystemResource("Title.fxml"));
-		try{
-			fxmlLoader.load();
-		}catch(IOException e){
-			e.printStackTrace();
-		}
-		Parent parent = fxmlLoader.getRoot();
-		Scene s = new Scene(parent);
-		s.setFill(Color.TRANSPARENT);
-		SCENE = s;
-		instance = fxmlLoader.getController();
-	}
+    private static final Scene SCENE;
+    static {
+        FXMLLoader fxmlLoader = new FXMLLoader(ClassLoader.getSystemResource("./pdex/Title.fxml"));
+        try {
+            fxmlLoader.load();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Parent parent = fxmlLoader.getRoot();
+        Scene s = new Scene(parent);
+        s.setFill(Color.TRANSPARENT);
+        SCENE = s;
+        instance = fxmlLoader.getController();
+    }
 
-	public static Controller getInstance(){
-		return instance;
-	}
+    /**
+     * singletonのインスタンスを返す
+     * @return instance
+     */
+    public static TitleController getInstance() {
+        return instance;
+    }
 
-	public void show(){
-		super.scene = SCENE;
-		notifyObservers();
-	}
+    /**
+     * 表示する
+     */
+    public void show() {
+        PDex.presentStage.setScene(SCENE);
+    }
 }
