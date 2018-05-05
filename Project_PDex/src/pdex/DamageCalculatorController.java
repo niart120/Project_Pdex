@@ -2,6 +2,7 @@ package pdex;
 
 import java.io.IOException;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -32,4 +33,8 @@ public class DamageCalculatorController{
 	public void show(){
 		PDex.presentStage.setScene(SCENE);
 	}
+
+	public void onBackButtonClicked(ActionEvent event) {
+        TitleController.getInstance().show();
+    }
 }
