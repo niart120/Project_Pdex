@@ -7,10 +7,10 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.paint.Color;
 
-public class PokeManagerController extends Controller {
+public class PokeManagerController{
 
 	private static final Scene SCENE;
-	private static final TitleController instance;
+	private static final PokeManagerController instance;
 	static{
 		FXMLLoader fxmlLoader = new FXMLLoader(ClassLoader.getSystemResource("PokeManager.fxml"));
 		try{
@@ -25,12 +25,11 @@ public class PokeManagerController extends Controller {
 		instance = fxmlLoader.getController();
 	}
 
-	public static Controller getInstance(){
+	public static PokeManagerController getInstance(){
 		return instance;
 	}
 
 	public void show(){
-		super.scene = SCENE;
-		notifyObservers();
+		PDex.presentStage.setScene(SCENE);
 	}
 }

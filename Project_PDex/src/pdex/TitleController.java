@@ -1,5 +1,6 @@
 package pdex;
 
+import java.awt.event.ActionEvent;
 import java.io.IOException;
 
 import javafx.fxml.FXMLLoader;
@@ -25,18 +26,14 @@ public class TitleController {
         instance = fxmlLoader.getController();
     }
 
-    /**
-     * singletonのインスタンスを返す
-     * @return instance
-     */
     public static TitleController getInstance() {
         return instance;
     }
 
-    /**
-     * 表示する
-     */
     public void show() {
         PDex.presentStage.setScene(SCENE);
+    }
+    public void onDmgButtonClicked(ActionEvent event) {
+        DamageCalculatorController.getInstance().show();
     }
 }

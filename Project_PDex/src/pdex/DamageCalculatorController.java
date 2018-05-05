@@ -7,10 +7,10 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.paint.Color;
 
-public class DamageCalculatorController extends Controller {
+public class DamageCalculatorController{
 
 	private static final Scene SCENE;
-	private static final TitleController instance;
+	private static final DamageCalculatorController instance;
 	static{
 		FXMLLoader fxmlLoader = new FXMLLoader(ClassLoader.getSystemResource("DamageCalculator.fxml"));
 		try{
@@ -25,12 +25,11 @@ public class DamageCalculatorController extends Controller {
 		instance = fxmlLoader.getController();
 	}
 
-	public static Controller getInstance(){
+	public static DamageCalculatorController getInstance(){
 		return instance;
 	}
 
 	public void show(){
-		super.scene = SCENE;
-		notifyObservers();
+		PDex.presentStage.setScene(SCENE);
 	}
 }
