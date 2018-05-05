@@ -21,7 +21,6 @@ public class PDex extends Application{
 		stage.setScene(scene);
 
 		TitleController.getInstance().show();
-		DamageCalculatorController.getInstance().show();
 		stage.show();
 	}
 

@@ -1,19 +1,16 @@
 package pdex;
 
-import java.awt.event.ActionEvent;
 import java.io.IOException;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.paint.Color;
 
 public class TitleController {
-
 	private static final TitleController instance;
     private static final Scene SCENE;
-    private Button dmgcalButton;
 
     static {
         FXMLLoader fxmlLoader = new FXMLLoader(ClassLoader.getSystemResource("./pdex/Title.fxml"));
@@ -33,10 +30,16 @@ public class TitleController {
         return instance;
     }
 
-    public void show() {
+    public void show(){
         PDex.presentStage.setScene(SCENE);
     }
     public void onDmgcalButtonClicked(ActionEvent event) {
         DamageCalculatorController.getInstance().show();
+    }
+    public void onPokeDexButtonClicked(ActionEvent event) {
+    	PokeDexController.getInstance().show();
+    }
+    public void onPokeManagerClicked(ActionEvent event) {
+    	PokeManagerController.getInstance().show();
     }
 }

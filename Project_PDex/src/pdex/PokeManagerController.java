@@ -12,7 +12,7 @@ public class PokeManagerController{
 	private static final Scene SCENE;
 	private static final PokeManagerController instance;
 	static{
-		FXMLLoader fxmlLoader = new FXMLLoader(ClassLoader.getSystemResource("PokeManager.fxml"));
+		FXMLLoader fxmlLoader = new FXMLLoader(ClassLoader.getSystemResource("./pdex/PokeManager.fxml"));
 		try{
 			fxmlLoader.load();
 		}catch(IOException e){

@@ -12,7 +12,7 @@ public class PokeDexController{
 	private static final Scene SCENE;
 	private static final PokeDexController instance;
 	static{
-		FXMLLoader fxmlLoader = new FXMLLoader(ClassLoader.getSystemResource("PokeDex.fxml"));
+		FXMLLoader fxmlLoader = new FXMLLoader(ClassLoader.getSystemResource("./pdex/PokeDex.fxml"));
 		try{
 			fxmlLoader.load();
 		}catch(IOException e){
