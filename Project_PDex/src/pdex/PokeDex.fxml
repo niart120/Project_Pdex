@@ -9,7 +9,7 @@
 
 <AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="400.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="pdex.PokeDexController">
   <children>
-    <ScrollPane id="ScrollPane" hbarPolicy="NEVER" layoutX="14.0" layoutY="33.0" prefHeight="229.0" prefViewportHeight="553.0" prefViewportWidth="372.0" prefWidth="372.0000999999975" vbarPolicy="ALWAYS">
+    <ScrollPane id="ScrollPane" hbarPolicy="NEVER" layoutX="14.0" layoutY="47.0" prefHeight="229.0" prefViewportHeight="553.0" prefViewportWidth="372.0" prefWidth="372.0000999999975" vbarPolicy="ALWAYS">
       <content>
         <TableView prefHeight="553.0" prefWidth="371.9998779296875">
           <columns>
@@ -45,5 +45,6 @@
         <Font name="System Bold" size="10.0" />
       </font>
     </Button>
+    <Button layoutX="315.0" layoutY="14.0" mnemonicParsing="false" onAction="#onBackButtonClicked" text="戻る" />
   </children>
 </AnchorPane>

@@ -90,5 +90,6 @@
         </FXCollections>
       </items>
     </ComboBox>
+    <Button layoutX="336.0" mnemonicParsing="false" onAction="#onBackButtonClicked" text="戻る" AnchorPane.topAnchor="10.0" />
   </children>
 </AnchorPane>

@@ -8,7 +8,7 @@
 
 <AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="400.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="pdex.PokeManagerController">
   <children>
-    <TabPane layoutX="0.0" layoutY="0.0" prefHeight="600.0" prefWidth="400.0" tabClosingPolicy="UNAVAILABLE">
+    <TabPane layoutX="0.0" layoutY="40.0" prefHeight="559.9999000000025" prefWidth="400.0" tabClosingPolicy="UNAVAILABLE">
       <tabs>
         <Tab style="-fx-background-color:#FE8E8E" text="ポケモン管理">
           <content>
@@ -41,5 +41,6 @@
         </Tab>
       </tabs>
     </TabPane>
+    <Button layoutX="333.0" mnemonicParsing="false" onAction="#onBackButtonClicked" text="戻る" AnchorPane.topAnchor="8.0" />
   </children>
 </AnchorPane>
