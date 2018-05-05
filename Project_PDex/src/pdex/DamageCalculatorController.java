@@ -8,11 +8,11 @@ import javafx.scene.Scene;
 import javafx.scene.paint.Color;
 
 public class DamageCalculatorController{
-
-	private static final Scene SCENE;
 	private static final DamageCalculatorController instance;
+	private static final Scene SCENE;
+
 	static{
-		FXMLLoader fxmlLoader = new FXMLLoader(ClassLoader.getSystemResource("DamageCalculator.fxml"));
+		FXMLLoader fxmlLoader = new FXMLLoader(ClassLoader.getSystemResource("./pdex/DamageCalculator.fxml"));
 		try{
 			fxmlLoader.load();
 		}catch(IOException e){

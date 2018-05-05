@@ -11,6 +11,7 @@ public class Data {
 	ArrayList<Move> moveData = new ArrayList<>();
 
 	public Data(){
+		
 		 try {
 		      File f = new File("./lib/pokemon.csv");
 		      BufferedReader br = new BufferedReader(new FileReader(f));

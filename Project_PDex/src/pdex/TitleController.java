@@ -6,12 +6,15 @@ import java.io.IOException;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.paint.Color;
 
 public class TitleController {
 
 	private static final TitleController instance;
     private static final Scene SCENE;
+    private Button dmgcalButton;
+
     static {
         FXMLLoader fxmlLoader = new FXMLLoader(ClassLoader.getSystemResource("./pdex/Title.fxml"));
         try {
@@ -33,7 +36,7 @@ public class TitleController {
     public void show() {
         PDex.presentStage.setScene(SCENE);
     }
-    public void onDmgButtonClicked(ActionEvent event) {
+    public void onDmgcalButtonClicked(ActionEvent event) {
         DamageCalculatorController.getInstance().show();
     }
 }
