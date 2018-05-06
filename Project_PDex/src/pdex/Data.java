@@ -5,13 +5,14 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Data {
-	ArrayList<Pokemon> pokeData= new ArrayList<>();
-	ArrayList<Move> moveData = new ArrayList<>();
+	List<Pokemon> pokeData= new ArrayList<>();
+	List<Move> moveData = new ArrayList<>();
 
 	public Data(){
-		
+
 		 try {
 		      File f = new File("./lib/pokemon.csv");
 		      BufferedReader br = new BufferedReader(new FileReader(f));
@@ -22,7 +23,7 @@ public class Data {
 		        for(int i=0;i<tempData.length-1;i++){
 		        	data[i] = Integer.valueOf(tempData[i+1]);
 		        }
-		        pokeData.add(new Pokemon(tempData[1],data));
+		        pokeData.add(new Pokemon(tempData[0],data));
 		      }
 		      br.close();
 		    } catch (IOException e) {
@@ -39,9 +40,7 @@ public class Data {
 		        for(int i=0;i<tempData.length-1;i++){
 		        	data[i] = Integer.valueOf(tempData[i+1]);
 		        }
-		        moveData.add(new Move(tempData[1],data));
-
-
+		        moveData.add(new Move(tempData[0],data));
 		      }
 		      br.close();
 		    } catch (IOException e) {
@@ -50,4 +49,14 @@ public class Data {
 
 	}
 
+	public List<Pokemon> searchByName(String s){
+		List<Pokemon> data= new ArrayList<>();
+		for(Pokemon poke: pokeData) {
+			if(poke.getName().contains(s)){
+				data.add(poke);
+			}
+		}
+		return data;
+
+	}
 }
