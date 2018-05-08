@@ -11,11 +11,11 @@
   <children>
     <ScrollPane id="ScrollPane" hbarPolicy="NEVER" layoutX="14.0" layoutY="47.0" prefHeight="229.0" prefViewportHeight="553.0" prefViewportWidth="372.0" prefWidth="372.0000999999975" vbarPolicy="ALWAYS">
       <content>
-        <TableView prefHeight="553.0" prefWidth="371.9998779296875">
+        <TableView id="pokeDexTable" fx:id="table" prefHeight="553.0" prefWidth="371.9998779296875">
           <columns>
-            <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="90.0" text="名前" />
-            <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="50.0" text="タイプ1" />
-            <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="50.0" text="タイプ2" />
+            <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="90.0" text="名前" fx:id="nameCol" />
+            <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="50.0" text="タイプ1" fx:id="type1Col" />
+            <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="50.0" text="タイプ2" fx:id="type2Col" />
             <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="163.0" text="列X" />
           </columns>
         </TableView>
@@ -37,7 +37,7 @@
     <Label layoutX="228.0" layoutY="490.0" text="A/C" />
     <TextField layoutX="259.0" layoutY="487.0" prefWidth="42.0" />
     <Button layoutX="316.0" layoutY="561.0" mnemonicParsing="false" text="検索" />
-    <Button layoutX="316.0" layoutY="428.0" mnemonicParsing="false" text="検索" />
+    <Button layoutX="316.0" layoutY="428.0" mnemonicParsing="false" onAction="#onSearchButtonClicked" text="検索" />
     <Label layoutX="24.0" layoutY="527.0" text="特性" />
     <TextField layoutX="54.0" layoutY="524.0" prefWidth="83.00009999999747" />
     <Button layoutX="347.0" layoutY="525.0" minHeight="24.0" minWidth="24.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="24.0" text="Z" textAlignment="CENTER">
