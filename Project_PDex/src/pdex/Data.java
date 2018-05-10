@@ -49,14 +49,32 @@ public class Data {
 
 	}
 
-	public List<Pokemon> searchByName(String s){
-		List<Pokemon> data= new ArrayList<>();
+	public List<String> searchByName(String s){
+		List<String> data= new ArrayList<>();
 		for(Pokemon poke: pokeData) {
 			if(poke.getName().contains(s)){
-				data.add(poke);
+				data.add(poke.getName());
 			}
 		}
 		return data;
-
 	}
+
+	public boolean isNameOnList(String s) {
+		for(Pokemon poke: pokeData) {
+			if(poke.getName().equals(s)) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	public Pokemon getPokeByName(String s) {
+		for(Pokemon poke: pokeData) {
+			if(poke.getName().equals(s)) {
+				return poke;
+			}
+		}
+		return null;
+	}
+
 }
