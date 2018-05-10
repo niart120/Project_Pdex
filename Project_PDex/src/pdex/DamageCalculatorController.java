@@ -67,45 +67,39 @@ public class DamageCalculatorController{
 		}
 
 		cBox.getEditor().setOnMouseClicked((e)->{
-			if(cBox.getValue()==null||cBox.getValue().isEmpty()) {
-				cBox.getSelectionModel().clearSelection();
-				oList.clear();
-				for(Pokemon poke: data.pokeData) {
-					oList.add(poke.getName());
-				}
-			}else if(!data.isNameOnList(cBox.getValue())) {
-				oList.clear();
-				for(Pokemon poke: data.searchByName(cBox.getValue())){
-					oList.add(poke.getName());
-				}
+			cBox.getSelectionModel().clearSelection();
+			oList.clear();
+			for(Pokemon poke: data.pokeData) {
+				oList.add(poke.getName());
 			}
-			cBox.autosize();
 			cBox.show();
 		});
 
 		cBox.setOnAction((e)->{
-			if(cBox.getValue()!=null) {
-				System.out.println(cBox.getSelectionModel().getSelectedItem());
-				if(cBox.getSelectionModel().isEmpty()) {
-					oList.clear();
-					for(Pokemon poke: data.searchByName(cBox.getValue())){
-						oList.add(poke.getName());
-					}
-				}else if(!data.isNameOnList(cBox.getValue())) {
-					String s = cBox.getValue();
-					oList.clear();
-					for(Pokemon poke: data.searchByName(s)){
-						oList.add(poke.getName());
-					}
-				}
-			}else {
-				oList.clear();
-				for(Pokemon poke: data.pokeData) {
+			System.out.println(cBox.getValue());
+			if(cBox.getValue()==null||cBox.getValue().isEmpty()) {
+				int l = oList.size();
+				for(Pokemon poke: data.pokeData){
 					oList.add(poke.getName());
 				}
+				oList.remove(0, l);
+				cBox.hide();
+				cBox.show();
+			}else if(data.isNameOnList(cBox.getValue())) {
+			}else {
+				String s = cBox.getValue();
+				cBox.getItems().clear();
+				oList.addAll(data.searchByName(s));
+				cBox.getEditor().setText(s);
+				System.out.println("re-searched");
+				cBox.hide();
+				cBox.show();
+
 			}
-			cBox.autosize();
-			cBox.show();
+		});
+
+		cBox.setOnHiding((e)->{
+
 		});
 
 
