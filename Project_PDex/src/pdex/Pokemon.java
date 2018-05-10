@@ -94,6 +94,9 @@ public class Pokemon {
 		return type2;
 	}
 
+	public int getHStat(int lv, int ev,int iv) {
+		return (hBS*2+ev+iv/4)*lv/100+10+lv;
+	}
 	public int getAStat(int lv, int ev,int iv,int nc) {
 		return ((aBS*2+ev+iv/4)*lv/100+5)*nc;
 	}
