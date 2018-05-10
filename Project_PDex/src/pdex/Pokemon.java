@@ -94,4 +94,25 @@ public class Pokemon {
 		return type2;
 	}
 
+	public int getAStat(int lv, int ev,int iv,int nc) {
+		return ((aBS*2+ev+iv/4)*lv/100+5)*nc;
+	}
+
+	public int getBStat(int lv, int ev,int iv,int nc) {
+		return ((bBS*2+ev+iv/4)*lv/100+5)*nc;
+	}
+
+	public int getCStat(int lv, int ev,int iv,int nc) {
+		return ((cBS*2+ev+iv/4)*lv/100+5)*nc;
+	}
+
+	public int getDStat(int lv, int ev,int iv,int nc) {
+		return ((dBS*2+ev+iv/4)*lv/100+5)*nc;
+	}
+
+	public int getSStat(int lv, int ev,int iv,int nc) {
+		return ((sBS*2+ev+iv/4)*lv/100+5)*nc;
+	}
+
+
 }
