@@ -19,7 +19,6 @@
             <Font size="15.0" fx:id="x1" />
           </font>
         </Button>
-        <TextField layoutX="77.0" layoutY="150.0" prefWidth="92.0" />
         <ComboBox editable="false" layoutX="432.0" layoutY="32.0" prefWidth="57.0" visibleRowCount="13">
           <items>
             <FXCollections fx:factory="observableArrayList">
@@ -59,6 +58,15 @@
         <TextField layoutX="428.0" layoutY="70.0" prefWidth="64.0" />
         <TextField fx:id="atkStat" layoutX="80.0" layoutY="68.0" prefWidth="45.000099999997474" />
             <TextField fx:id="atkIV" layoutX="339.0" layoutY="32.0" prefWidth="45.0" text="31" />
+            <ComboBox fx:id="moveName" editable="true" layoutX="80.0" layoutY="150.0" prefHeight="31.0" prefWidth="102.0">
+               <items>
+                  <FXCollections fx:factory="observableArrayList">
+                     <String fx:value="アイテム1" />
+                     <String fx:value="アイテム2" />
+                     <String fx:value="アイテム3" />
+                  </FXCollections>
+               </items>
+            </ComboBox>
       </children>
     </AnchorPane>
     <AnchorPane layoutX="0.0" layoutY="274.0" minHeight="0.0" minWidth="0.0" prefHeight="226.0" prefWidth="500.0" style="-fx-background-color:#DEDEFE">
