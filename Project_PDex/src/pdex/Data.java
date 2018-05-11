@@ -49,11 +49,21 @@ public class Data {
 
 	}
 
-	public List<String> searchByName(String s){
+	public List<String> searchPokeByName(String s){
 		List<String> data= new ArrayList<>();
 		for(Pokemon poke: pokeData) {
 			if(poke.getName().contains(s)){
 				data.add(poke.getName());
+			}
+		}
+		return data;
+	}
+
+	public List<String> searchMoveByName(String s){
+		List<String> data= new ArrayList<>();
+		for(Move mv: moveData) {
+			if(mv.getName().contains(s)){
+				data.add(mv.getName());
 			}
 		}
 		return data;
