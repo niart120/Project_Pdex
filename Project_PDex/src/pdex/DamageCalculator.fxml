@@ -67,6 +67,8 @@
                   </FXCollections>
                </items>
             </ComboBox>
+            <TextField fx:id="power" layoutX="231.0" layoutY="150.0" prefWidth="45.000099999997474" />
+            <Label layoutX="194.0" layoutY="155.0" text="威力" />
       </children>
     </AnchorPane>
     <AnchorPane layoutX="0.0" layoutY="274.0" minHeight="0.0" minWidth="0.0" prefHeight="226.0" prefWidth="500.0" style="-fx-background-color:#DEDEFE">
@@ -81,8 +83,8 @@
             </FXCollections>
           </items>
         </ComboBox>
-        <TextField fx:id="defIV" layoutX="340.0" layoutY="41.0" prefWidth="45.0" text="31" />
-        <Label layoutX="319.0" layoutY="44.0" text="個" />
+        <TextField fx:id="defIV" layoutX="335.0" layoutY="39.0" prefWidth="45.0" text="31" />
+        <Label layoutX="320.0" layoutY="44.0" text="個" />
         <Label layoutX="389.0" layoutY="44.0" text="ランク" />
         <RadioButton layoutX="230.0" layoutY="81.0" mnemonicParsing="false" prefWidth="57.0" text="1.1">
           <toggleGroup>
@@ -90,12 +92,12 @@
           </toggleGroup>
         </RadioButton>
         <RadioButton layoutX="179.0" layoutY="81.0" mnemonicParsing="false" prefWidth="57.0" selected="true" text="1.0" toggleGroup="$x2" />
-        <TextField fx:id="defEV" layoutX="274.0" layoutY="41.0" prefWidth="45.0" text="0" />
-        <Label layoutX="259.0" layoutY="44.0" text="努" />
+        <TextField fx:id="defEV" layoutX="275.0" layoutY="39.0" prefWidth="45.0" text="0" />
+        <Label layoutX="256.0" layoutY="44.0" text="努" />
         <Label layoutX="44.0" layoutY="80.0" text="防御" />
-        <Label layoutX="185.0" layoutY="44.0" text="Lv" />
-        <TextField fx:id="defLV" layoutX="208.0" layoutY="41.0" prefWidth="45.0" text="50" />
-        <ComboBox fx:id="defPokeName" editable="true" layoutX="81.0" layoutY="44.0" prefHeight="20.0" prefWidth="92.0">
+        <Label layoutX="193.0" layoutY="44.0" text="Lv" />
+        <TextField fx:id="defLV" layoutX="208.0" layoutY="39.0" prefWidth="45.0" text="50" />
+        <ComboBox fx:id="defPokeName" editable="true" layoutX="80.0" layoutY="39.0" prefHeight="31.0" prefWidth="108.0">
           <items>
             <FXCollections fx:factory="observableArrayList">
               <String fx:value="アイテム1" />
@@ -110,6 +112,12 @@
         <TextField layoutX="312.0" layoutY="78.0" prefWidth="80.0" />
         <Label layoutX="399.0" layoutY="81.0" text="道具" />
         <TextField layoutX="429.0" layoutY="77.0" prefWidth="64.0" />
+            <TextField fx:id="hpStat" layoutX="80.0" layoutY="115.0" prefWidth="45.000099999997474" />
+            <Label layoutX="49.0" layoutY="120.0" text=" HP" />
+            <Label layoutX="137.0" layoutY="120.0" text="努" />
+            <TextField fx:id="defHEV" layoutX="152.0" layoutY="115.0" prefWidth="45.0" text="0" />
+            <Label layoutX="200.0" layoutY="120.0" text="個" />
+            <TextField fx:id="defHIV" layoutX="218.0" layoutY="115.0" prefWidth="45.0" text="31" />
       </children>
     </AnchorPane>
     <Label layoutX="10.0" layoutY="510.0" text="結果" />
