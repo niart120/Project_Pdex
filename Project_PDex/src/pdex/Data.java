@@ -59,7 +59,7 @@ public class Data {
 		return data;
 	}
 
-	public boolean isNameOnList(String s) {
+	public boolean isPokeNameOnList(String s) {
 		for(Pokemon poke: pokeData) {
 			if(poke.getName().equals(s)) {
 				return true;
