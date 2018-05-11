@@ -68,10 +68,28 @@ public class Data {
 		return false;
 	}
 
+	public boolean isMoveNameOnList(String s) {
+		for(Move mv: moveData) {
+			if(mv.getName().equals(s)) {
+				return true;
+			}
+		}
+		return false;
+	}
+
 	public Pokemon getPokeByName(String s) {
 		for(Pokemon poke: pokeData) {
 			if(poke.getName().equals(s)) {
 				return poke;
+			}
+		}
+		return null;
+	}
+
+	public Move getMoveByName(String s) {
+		for(Move mv: moveData) {
+			if(mv.getName().equals(s)) {
+				return mv;
 			}
 		}
 		return null;
