@@ -32,6 +32,9 @@ public class DamageCalculator {
 	}
 
 	private int typeMatch(Move mv,DCPoke poke) {
+		if(poke.getType1()==mv.getType()||poke.getType2()==mv.getType()) {
+			return 3;
+		}
 		return 2;
 	}
 
