@@ -41,6 +41,6 @@ public class DamageCalculator {
 　		÷ 50 ＋ 2 → 切り捨て
 　		× 乱数(0.85, 0.86, …… ,0.99, 1.00 の何れか) → 切り捨て
 		 */
-		return ((atkLV*2/5+2)*power*atkStat/defStat/50+2)*100/100*typeMatch(mv,atkPoke)/4*getEffect(mv,defPoke)/2;
+		return ((atkLV*2/5+2)*power*atkStat/defStat/50+2)*100/100*typeMatch(mv,atkPoke)/2*getEffect(mv,defPoke)/4;
 	}
 }
