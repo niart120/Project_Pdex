@@ -14,7 +14,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.paint.Color;
 
 public class DamageCalculatorController{
@@ -26,6 +28,15 @@ public class DamageCalculatorController{
 	@FXML private Label damage;
 
 	@FXML private Button calc;
+
+	@FXML private ToggleGroup atkNature;
+	@FXML private ToggleGroup defNature;
+	@FXML private RadioButton atkU;
+	@FXML private RadioButton atkN;
+	@FXML private RadioButton atkD;
+	@FXML private RadioButton defU;
+	@FXML private RadioButton defN;
+	@FXML private RadioButton defD;
 
 	@FXML private TextField atkLV;
 	@FXML private TextField defLV;
@@ -82,6 +93,14 @@ public class DamageCalculatorController{
 		defNames = FXCollections.observableArrayList();
 		mvNames = FXCollections.observableArrayList();
 
+		atkU.setUserData(1);
+		atkN.setUserData(0);
+		atkD.setUserData(-1);
+
+		defU.setUserData(1);
+		defN.setUserData(0);
+		defD.setUserData(-1);
+
 		initPokeComboBox(atkPokeName,atkNames);
 		initPokeComboBox(defPokeName,defNames);
 		initMoveComboBox(moveName,mvNames);
@@ -93,6 +112,15 @@ public class DamageCalculatorController{
 		initTextField(defPokeName,defIV);
 		initTextField(defPokeName,defHEV);
 		initTextField(defPokeName,defHIV);
+
+		initRadioButton(atkPokeName, atkU);
+		initRadioButton(atkPokeName, atkN);
+		initRadioButton(atkPokeName, atkD);
+
+		initRadioButton(defPokeName, defU);
+		initRadioButton(defPokeName, defN);
+		initRadioButton(defPokeName, defD);
+
 
 		calc.setOnMouseClicked((e)->{
 			damage.setText("ダメージ:"+dm.getDamage(move, new DCPoke(atkPoke,Integer.valueOf(atkLV.getText()),Integer.valueOf(atkStat.getText())), new DCPoke(defPoke,Integer.valueOf(defStat.getText()))));
@@ -150,7 +178,8 @@ public class DamageCalculatorController{
 		for(Pokemon poke: data.pokeData) {
 			oList.add(poke.getName());
 		}
-
+		cBox.getSelectionModel().select(0);
+		setStat(cBox);
 
 		cBox.getEditor().setOnMouseClicked((e)->{
 			cBox.getSelectionModel().clearSelection();
@@ -172,14 +201,7 @@ public class DamageCalculatorController{
 				cBox.hide();
 				cBox.show();
 			}else if(data.isPokeNameOnList(cBox.getValue())) {
-
-				if(cBox.hashCode()==atkPokeName.hashCode()) {
-					atkPoke = data.getPokeByName(cBox.getValue());;
-					setAtkStat(atkPoke);
-				}else {
-					defPoke = data.getPokeByName(cBox.getValue());;
-					setDefStat(defPoke);
-				}
+				setStat(cBox);
 			}else {
 
 				String s = cBox.getValue();
@@ -200,16 +222,15 @@ public class DamageCalculatorController{
 		    @Override
 		    public void changed(ObservableValue<? extends String> observable,String oldValue, String newValue) {
 		    	if(!"".equals(text.getText())){
-					if(data.isPokeNameOnList(cBox.getValue())) {
-						Pokemon poke = data.getPokeByName(cBox.getValue());
-						if(cBox.hashCode()==atkPokeName.hashCode()) {
-							setAtkStat(poke);
-						}else {
-							setDefStat(poke);
-						}
-					}
+					setStat(cBox);
 				}
 		    }
+		});
+	}
+
+	private void initRadioButton(ComboBox<String> cBox, RadioButton btn) {
+		btn.setOnAction((e)->{
+			setStat(cBox);
 		});
 	}
 
@@ -217,9 +238,9 @@ public class DamageCalculatorController{
 		int lv = Integer.parseInt(atkLV.getText());
 		int ev = Integer.parseInt(atkEV.getText());
 		int iv = Integer.parseInt(atkIV.getText());
-		double nc = 1;
 
-		atkStat.setText(String.valueOf(poke.getAStat(lv, ev, iv, nc)));
+
+		atkStat.setText(String.valueOf(poke.getAStat(lv, ev, iv, (int) atkNature.getSelectedToggle().getUserData())));
 	}
 
 	private void setDefStat(Pokemon poke) {
@@ -228,15 +249,24 @@ public class DamageCalculatorController{
 		int iv = Integer.parseInt(defIV.getText());
 		int hev = Integer.parseInt(defHEV.getText());
 		int hiv = Integer.parseInt(defHIV.getText());
-		double nc = 1;
 
-		defStat.setText(String.valueOf(poke.getBStat(lv, ev, iv, nc)));
+		defStat.setText(String.valueOf(poke.getBStat(lv, ev, iv, (int) defNature.getSelectedToggle().getUserData())));
 		hpStat.setText(String.valueOf(poke.getHStat(lv, hev, hiv)));
 
 	}
 
 	private void setPower(Move move) {
 		power.setText(String.valueOf(move.getPower()));
+	}
+
+	private void setStat(ComboBox<String> cBox) {
+		if(cBox.hashCode()==atkPokeName.hashCode()) {
+			atkPoke = data.getPokeByName(cBox.getValue());;
+			setAtkStat(atkPoke);
+		}else {
+			defPoke = data.getPokeByName(cBox.getValue());;
+			setDefStat(defPoke);
+		}
 	}
 
 
