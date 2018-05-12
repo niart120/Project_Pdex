@@ -35,12 +35,12 @@ public class DamageCalculator {
 		return 2;
 	}
 
-	public int getDamage(int atkLV,int power,int atkStat,int defStat,Move mv,DCPoke atkPoke, DCPoke defPoke) {
+	public int getDamage(Move mv,DCPoke atkPoke, DCPoke defPoke) {
 		/*ダメージ = 攻撃側のレベル × 2 ÷ 5 ＋ 2 → 切り捨て
 　		× 物理技(特殊技)の威力 × 攻撃側のこうげき(とくこう) ÷ 防御側のぼうぎょ(とくぼう) → 切り捨て
 　		÷ 50 ＋ 2 → 切り捨て
 　		× 乱数(0.85, 0.86, …… ,0.99, 1.00 の何れか) → 切り捨て
 		 */
-		return ((atkLV*2/5+2)*power*atkStat/defStat/50+2)*100/100*typeMatch(mv,atkPoke)/2*getEffect(mv,defPoke)/4;
+		return ((atkPoke.getLv()*2/5+2)*mv.getPower()*atkPoke.getStat()/defPoke.getStat()/50+2)*100/100*typeMatch(mv,atkPoke)/2*getEffect(mv,defPoke)/4;
 	}
 }
