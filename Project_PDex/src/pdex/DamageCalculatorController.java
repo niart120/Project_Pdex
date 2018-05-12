@@ -11,7 +11,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
 
@@ -20,6 +22,10 @@ public class DamageCalculatorController{
 	@FXML private ComboBox<String> atkPokeName;
 	@FXML private ComboBox<String> defPokeName;
 	@FXML private ComboBox<String> moveName;
+
+	@FXML private Label damage;
+
+	@FXML private Button calc;
 
 	@FXML private TextField atkLV;
 	@FXML private TextField defLV;
@@ -40,6 +46,10 @@ public class DamageCalculatorController{
 
 
 	private Data data = new Data();
+	private DamageCalculator dm = new DamageCalculator();
+	private Move move;
+	private Pokemon atkPoke;
+	private Pokemon defPoke;
 
 
 	private static final DamageCalculatorController instance;
@@ -83,6 +93,10 @@ public class DamageCalculatorController{
 		initTextField(defPokeName,defIV);
 		initTextField(defPokeName,defHEV);
 		initTextField(defPokeName,defHIV);
+
+		calc.setOnMouseClicked((e)->{
+			damage.setText("ダメージ:"+dm.getDamage(move, new DCPoke(atkPoke,Integer.valueOf(atkLV.getText()),Integer.valueOf(atkStat.getText())), new DCPoke(defPoke,Integer.valueOf(defStat.getText()))));
+		});
 	}
 
 	public void onBackButtonClicked(ActionEvent event) {
@@ -116,7 +130,8 @@ public class DamageCalculatorController{
 				cBox.hide();
 				cBox.show();
 			}else if(data.isMoveNameOnList(cBox.getValue())) {
-				setPower(data.getMoveByName(cBox.getValue()));
+				move = data.getMoveByName(cBox.getValue());
+				setPower(move);
 			}else {
 
 				String s = cBox.getValue();
@@ -157,11 +172,13 @@ public class DamageCalculatorController{
 				cBox.hide();
 				cBox.show();
 			}else if(data.isPokeNameOnList(cBox.getValue())) {
-				Pokemon poke = data.getPokeByName(cBox.getValue());
+
 				if(cBox.hashCode()==atkPokeName.hashCode()) {
-					setAtkStat(poke);
+					atkPoke = data.getPokeByName(cBox.getValue());;
+					setAtkStat(atkPoke);
 				}else {
-					setDefStat(poke);
+					defPoke = data.getPokeByName(cBox.getValue());;
+					setDefStat(defPoke);
 				}
 			}else {
 
