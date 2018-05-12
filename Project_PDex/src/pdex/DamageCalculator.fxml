@@ -29,12 +29,12 @@
         </ComboBox>
         <Label layoutX="324.0" layoutY="35.0" text="個" />
         <Label layoutX="388.0" layoutY="37.0" text="ランク" />
-        <RadioButton layoutX="229.0" layoutY="74.0" mnemonicParsing="false" prefWidth="57.0" text="1.1">
-          <toggleGroup>
-            <ToggleGroup fx:id="x3" />
-          </toggleGroup>
+        <RadioButton fx:id="atkU" layoutX="229.0" layoutY="74.0" mnemonicParsing="false" prefWidth="57.0" text="1.1">
+               <toggleGroup>
+                  <ToggleGroup fx:id="atkNature" />
+               </toggleGroup>
         </RadioButton>
-        <RadioButton layoutX="178.0" layoutY="74.0" mnemonicParsing="false" prefWidth="57.0" selected="true" text="1.0" toggleGroup="$x3" />
+        <RadioButton fx:id="atkN" layoutX="178.0" layoutY="74.0" mnemonicParsing="false" prefWidth="57.0" selected="true" text="1.0" toggleGroup="$atkNature" />
         <TextField fx:id="atkEV" layoutX="271.0" layoutY="32.0" prefWidth="45.0" text="0" />
         <Label layoutX="256.0" layoutY="35.0" text="努" />
         <Label layoutX="43.0" layoutY="73.0" text="攻撃" />
@@ -50,7 +50,7 @@
           </items>
         </ComboBox>
         <Label layoutX="33.0" layoutY="35.0" text="ポケモン" />
-        <RadioButton layoutX="127.0" layoutY="74.0" mnemonicParsing="false" prefWidth="57.0" text="0.9" toggleGroup="$x3" />
+        <RadioButton fx:id="atkD" layoutX="127.0" layoutY="74.0" mnemonicParsing="false" prefWidth="57.0" text="0.9" toggleGroup="$atkNature" />
         <Label layoutX="281.0" layoutY="73.0" text="特性" />
         <TextField layoutX="311.0" layoutY="71.0" prefWidth="80.0" />
         <Label layoutX="398.0" layoutY="74.0" text="道具" />
@@ -85,12 +85,12 @@
         <TextField fx:id="defIV" layoutX="335.0" layoutY="39.0" prefWidth="45.0" text="31" />
         <Label layoutX="320.0" layoutY="44.0" text="個" />
         <Label layoutX="389.0" layoutY="44.0" text="ランク" />
-        <RadioButton layoutX="230.0" layoutY="81.0" mnemonicParsing="false" prefWidth="57.0" text="1.1">
-          <toggleGroup>
-            <ToggleGroup fx:id="x2" />
-          </toggleGroup>
+        <RadioButton fx:id="defU" layoutX="230.0" layoutY="81.0" mnemonicParsing="false" prefWidth="57.0" text="1.1">
+               <toggleGroup>
+                  <ToggleGroup fx:id="defNature" />
+               </toggleGroup>
         </RadioButton>
-        <RadioButton layoutX="179.0" layoutY="81.0" mnemonicParsing="false" prefWidth="57.0" selected="true" text="1.0" toggleGroup="$x2" />
+        <RadioButton fx:id="defN" layoutX="179.0" layoutY="81.0" mnemonicParsing="false" prefWidth="57.0" selected="true" text="1.0" toggleGroup="$defNature" />
         <TextField fx:id="defEV" layoutX="275.0" layoutY="39.0" prefWidth="45.0" text="0" />
         <Label layoutX="256.0" layoutY="44.0" text="努" />
         <Label layoutX="44.0" layoutY="80.0" text="防御" />
@@ -106,7 +106,7 @@
           </items>
         </ComboBox>
         <Label layoutX="34.0" layoutY="44.0" text="ポケモン" />
-        <RadioButton layoutX="128.0" layoutY="81.0" mnemonicParsing="false" prefWidth="57.0" text="0.9" toggleGroup="$x2" />
+        <RadioButton fx:id="defD" layoutX="128.0" layoutY="81.0" mnemonicParsing="false" prefWidth="57.0" text="0.9" toggleGroup="$defNature" />
         <Label layoutX="282.0" layoutY="80.0" text="特性" />
         <TextField layoutX="312.0" layoutY="78.0" prefWidth="80.0" />
         <Label layoutX="399.0" layoutY="81.0" text="道具" />
