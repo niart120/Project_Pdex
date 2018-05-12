@@ -97,24 +97,36 @@ public class Pokemon {
 	public int getHStat(int lv, int ev,int iv) {
 		return (hBS*2+ev/4+iv)*lv/100+10+lv;
 	}
-	public int getAStat(int lv, int ev,int iv,double nc) {
-		return (int) (((aBS*2+ev/4+iv)*lv/100+5)*nc);
+	public int getAStat(int lv, int ev,int iv,int nc) {
+		return getStat(sBS,lv,ev,iv,nc);
 	}
 
-	public int getBStat(int lv, int ev,int iv,double nc) {
-		return (int) (((bBS*2+ev/4+iv)*lv/100+5)*nc);
+	public int getBStat(int lv, int ev,int iv,int nc) {
+		return getStat(sBS,lv,ev,iv,nc);
 	}
 
-	public int getCStat(int lv, int ev,int iv,double nc) {
-		return (int) (((cBS*2+ev/4+iv)*lv/100+5)*nc);
+	public int getCStat(int lv, int ev,int iv,int nc) {
+		return getStat(sBS,lv,ev,iv,nc);
 	}
 
-	public int getDStat(int lv, int ev,int iv,double nc) {
-		return (int) (((dBS*2+ev/4+iv)*lv/100+5)*nc);
+	public int getDStat(int lv, int ev,int iv,int nc) {
+		return getStat(sBS,lv,ev,iv,nc);
 	}
 
-	public int getSStat(int lv, int ev,int iv,double nc) {
-		return (int) (((sBS*2+ev/4+iv)*lv/100+5)*nc);
+	public int getSStat(int lv, int ev,int iv,int nc) {
+		return getStat(sBS,lv,ev,iv,nc);
+	}
+
+	private int getStat(int BS,int lv, int ev,int iv,int nc) {
+		switch (nc){
+			case 1:
+				return (int) (((BS*2+ev/4+iv)*lv/100+5))*11/10;
+			case 0:
+				return (int) (((BS*2+ev/4+iv)*lv/100+5));
+			case -1:
+				return (int) (((BS*2+ev/4+iv)*lv/100+5));
+		}
+		return 0;
 	}
 
 
