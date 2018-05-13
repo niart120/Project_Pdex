@@ -25,6 +25,7 @@ public class DCFieldBase {
 	@FXML protected TextField stat;
 
 	protected Data data = new Data();
+	Pokemon p;
 	private DCPoke dcpoke;
 	private ObservableList<String> names;
 
@@ -50,7 +51,9 @@ public class DCFieldBase {
 			names.add(poke.getName());
 		}
 		pokeCB.getSelectionModel().select(0);
-		setStat(data.getPokeByName(pokeCB.getValue()));
+		p = data.getPokeByName(pokeCB.getValue());
+		setStat(p);
+		dcpoke = new DCPoke(p,Integer.valueOf(lv.getText()),Integer.valueOf(stat.getText()));
 
 		pokeCB.getEditor().setOnMouseClicked((e)->{
 			pokeCB.getSelectionModel().clearSelection();
@@ -72,7 +75,9 @@ public class DCFieldBase {
 				pokeCB.hide();
 				pokeCB.show();
 			}else if(data.isPokeNameOnList(pokeCB.getValue())) {
-				setStat(data.getPokeByName(pokeCB.getValue()));
+				p = data.getPokeByName(pokeCB.getValue());
+	    		setStat(p);
+	    		dcpoke = new DCPoke(p,Integer.valueOf(lv.getText()),Integer.valueOf(stat.getText()));
 			}else {
 
 				String s = pokeCB.getValue();
@@ -93,7 +98,7 @@ public class DCFieldBase {
 		    @Override
 		    public void changed(ObservableValue<? extends String> observable,String oldValue, String newValue) {
 		    	if(!"".equals(text.getText())&&data.isPokeNameOnList(pokeCB.getValue())){
-		    		Pokemon p = data.getPokeByName(pokeCB.getValue());
+		    		p = data.getPokeByName(pokeCB.getValue());
 		    		setStat(p);
 		    		dcpoke = new DCPoke(p,Integer.valueOf(lv.getText()),Integer.valueOf(stat.getText()));
 				}
@@ -102,13 +107,19 @@ public class DCFieldBase {
 	}
 	void initRadioButton() {
 		up.setOnAction((e)->{
-			setStat(data.getPokeByName(pokeCB.getValue()));
+			p = data.getPokeByName(pokeCB.getValue());
+    		setStat(p);
+    		dcpoke = new DCPoke(p,Integer.valueOf(lv.getText()),Integer.valueOf(stat.getText()));
 		});
 		neutral.setOnAction((e)->{
-			setStat(data.getPokeByName(pokeCB.getValue()));
+			p = data.getPokeByName(pokeCB.getValue());
+    		setStat(p);
+    		dcpoke = new DCPoke(p,Integer.valueOf(lv.getText()),Integer.valueOf(stat.getText()));
 		});
 		down.setOnAction((e)->{
-			setStat(data.getPokeByName(pokeCB.getValue()));
+			p = data.getPokeByName(pokeCB.getValue());
+    		setStat(p);
+    		dcpoke = new DCPoke(p,Integer.valueOf(lv.getText()),Integer.valueOf(stat.getText()));
 		});
 	}
 
