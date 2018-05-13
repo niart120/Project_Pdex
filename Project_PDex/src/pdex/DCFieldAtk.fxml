@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.collections.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane fx:id="atk" layoutX="0.0" layoutY="42.0" minHeight="0.0" minWidth="0.0" prefHeight="232.0" prefWidth="500.0" style="-fx-background-color:#FEDEDE" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pdex.DCFieldAtk">
+      <children>
+        <Label layoutX="14.0" layoutY="14.0" text="攻撃側" />
+        <Button contentDisplay="LEFT" layoutX="33.0" layoutY="150.0" mnemonicParsing="false" prefWidth="44.0" style="-fx-background-color:#FEDEDE" text="技" textAlignment="RIGHT" underline="false">
+          <font>
+            <Font size="15.0" fx:id="x1" />
+          </font>
+        </Button>
+        <ComboBox editable="false" layoutX="432.0" layoutY="32.0" prefWidth="57.0" visibleRowCount="13">
+          <items>
+            <FXCollections fx:factory="observableArrayList">
+              <String fx:value="アイテム1" />
+              <String fx:value="アイテム2" />
+              <String fx:value="アイテム3" />
+            </FXCollections>
+          </items>
+        </ComboBox>
+        <Label layoutX="324.0" layoutY="35.0" text="個" />
+        <Label layoutX="388.0" layoutY="37.0" text="ランク" />
+        <RadioButton fx:id="up" layoutX="229.0" layoutY="74.0" mnemonicParsing="false" prefWidth="57.0" text="1.1">
+         <toggleGroup>
+            <ToggleGroup fx:id="nature" />
+         </toggleGroup>
+        </RadioButton>
+        <RadioButton fx:id="neutral" layoutX="178.0" layoutY="74.0" mnemonicParsing="false" prefWidth="57.0" selected="true" text="1.0" toggleGroup="$nature" />
+        <TextField fx:id="ev" layoutX="271.0" layoutY="32.0" prefWidth="45.0" text="0" />
+        <Label layoutX="256.0" layoutY="35.0" text="努" />
+        <Label layoutX="43.0" layoutY="73.0" text="攻撃" />
+        <Label layoutX="190.0" layoutY="35.0" text="Lv" />
+        <TextField fx:id="lv" layoutX="205.0" layoutY="32.0" prefWidth="45.0" text="50" />
+        <ComboBox fx:id="pokeCB" editable="true" layoutX="80.0" layoutY="32.0" prefHeight="31.0" prefWidth="102.0">
+          <items>
+            <FXCollections fx:factory="observableArrayList">
+              <String fx:value="アイテム1" />
+              <String fx:value="アイテム2" />
+              <String fx:value="アイテム3" />
+            </FXCollections>
+          </items>
+        </ComboBox>
+        <Label layoutX="33.0" layoutY="35.0" text="ポケモン" />
+        <RadioButton fx:id="down" layoutX="127.0" layoutY="74.0" mnemonicParsing="false" prefWidth="57.0" text="0.9" toggleGroup="$nature" />
+        <Label layoutX="281.0" layoutY="73.0" text="特性" />
+        <TextField layoutX="311.0" layoutY="71.0" prefWidth="80.0" />
+        <Label layoutX="398.0" layoutY="74.0" text="道具" />
+        <TextField layoutX="428.0" layoutY="70.0" prefWidth="64.0" />
+        <TextField fx:id="stat" layoutX="80.0" layoutY="68.0" prefWidth="45.000099999997474" />
+            <TextField fx:id="iv" layoutX="339.0" layoutY="32.0" prefWidth="45.0" text="31" />
+            <ComboBox fx:id="moveCB" editable="true" layoutX="80.0" layoutY="150.0" prefHeight="31.0" prefWidth="102.0">
+               <items>
+                  <FXCollections fx:factory="observableArrayList">
+                     <String fx:value="アイテム1" />
+                     <String fx:value="アイテム2" />
+                     <String fx:value="アイテム3" />
+                  </FXCollections>
+               </items>
+            </ComboBox>
+            <TextField fx:id="power" layoutX="231.0" layoutY="150.0" prefWidth="45.000099999997474" />
+            <Label layoutX="194.0" layoutY="155.0" text="威力" />
+      </children>
+    </AnchorPane>
