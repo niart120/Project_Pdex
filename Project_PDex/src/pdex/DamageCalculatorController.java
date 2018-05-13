@@ -56,7 +56,7 @@ public class DamageCalculatorController{
 	private ObservableList<String> mvNames;
 
 
-	private Data data = new Data();
+	private Data data;
 	private DamageCalculator dm = new DamageCalculator();
 	private Move move;
 	private Pokemon atkPoke;
