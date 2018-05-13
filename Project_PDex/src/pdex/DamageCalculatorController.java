@@ -22,7 +22,7 @@ public class DamageCalculatorController{
 	@FXML private DCFieldAtk atkController;
 	@FXML private DCFieldDef defController;
 
-	private DamageCalculator dm;
+	private DamageCalculator dm = new DamageCalculator();
 
 	private static final DamageCalculatorController instance;
 	private static final Scene SCENE;
@@ -52,7 +52,6 @@ public class DamageCalculatorController{
 	public void initialize() {
 
 		calc.setOnMouseClicked((e)->{
-			System.out.println(atkController.getMove().getName());
 			damage.setText("ダメージ:"+dm.getDamage(atkController.getMove(), atkController.getDcpoke(),defController.getDcpoke()));
 
 		});
