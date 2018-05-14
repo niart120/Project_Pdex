@@ -1,5 +1,7 @@
 package pdex;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -36,28 +38,23 @@ public class DCFieldAtk extends DCFieldBase {
 			moveCB.show();
 		});
 
-		moveCB.setOnAction((e)->{
-			System.out.println(moveCB.getValue());
-			if(moveCB.getValue()==null||moveCB.getValue().isEmpty()) {
-				int l = mvNames.size();
-				for(Move mv: data.moveData){
-					mvNames.add(mv.getName());
+		moveCB.getEditor().textProperty().addListener(new ChangeListener<String>() {
+			public void changed(ObservableValue<? extends String> observable,String oldValue, String newValue) {
+				if(newValue==null||newValue.isEmpty()) {
+					mvNames.clear();
+					for(Move mv: data.moveData){
+						mvNames.add(mv.getName());
+					}
+					moveCB.show();
+				}else if(data.isMoveNameOnList(moveCB.getValue())) {
+					move = data.getMoveByName(moveCB.getValue());
+					setPower(move);
+				}else {
+					mvNames.clear();
+					mvNames.addAll(data.searchMoveByName(newValue));
+					moveCB.show();
+
 				}
-				mvNames.remove(0, l);
-				moveCB.hide();
-				moveCB.show();
-			}else if(data.isMoveNameOnList(moveCB.getValue())) {
-				move = data.getMoveByName(moveCB.getValue());
-				setPower(move);
-			}else {
-
-				String s = moveCB.getValue();
-				moveCB.getItems().clear();
-				mvNames.addAll(data.searchMoveByName(s));
-				moveCB.getEditor().setText(s);
-				moveCB.hide();
-				moveCB.show();
-
 			}
 		});
 	}

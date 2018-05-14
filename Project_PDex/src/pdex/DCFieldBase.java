@@ -64,33 +64,26 @@ public class DCFieldBase {
 			pokeCB.show();
 		});
 
-		pokeCB.setOnAction((e)->{
-			System.out.println(pokeCB.getValue());
-			if(pokeCB.getValue()==null||pokeCB.getValue().isEmpty()) {
-				int l = names.size();
-				for(Pokemon poke: data.pokeData){
-					names.add(poke.getName());
+		pokeCB.getEditor().textProperty().addListener(new ChangeListener<String>() {
+			public void changed(ObservableValue<? extends String> observable,String oldValue, String newValue) {
+				if(newValue==null||newValue.isEmpty()) {
+					names.clear();
+					for(Pokemon poke: data.pokeData){
+						names.add(poke.getName());
+					}
+					pokeCB.show();
+				}else if(data.isPokeNameOnList(pokeCB.getValue())) {
+					p = data.getPokeByName(pokeCB.getValue());
+		    		setStat(p);
+		    		dcpoke = new DCPoke(p,Integer.valueOf(lv.getText()),Integer.valueOf(stat.getText()));
+				}else {
+					names.clear();
+					names.addAll(data.searchPokeByName(newValue));
+					pokeCB.show();
+
 				}
-				names.remove(0, l);
-				pokeCB.hide();
-				pokeCB.show();
-			}else if(data.isPokeNameOnList(pokeCB.getValue())) {
-				p = data.getPokeByName(pokeCB.getValue());
-	    		setStat(p);
-	    		dcpoke = new DCPoke(p,Integer.valueOf(lv.getText()),Integer.valueOf(stat.getText()));
-			}else {
-
-				String s = pokeCB.getValue();
-				pokeCB.getItems().clear();
-				names.addAll(data.searchPokeByName(s));
-				pokeCB.getEditor().setText(s);
-				System.out.println("re-searched");
-				pokeCB.hide();
-				pokeCB.show();
-
 			}
 		});
-
 	}
 
 	void initTextField(TextField text) {
