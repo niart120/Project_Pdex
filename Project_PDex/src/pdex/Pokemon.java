@@ -124,7 +124,7 @@ public class Pokemon {
 			case 0:
 				return (int) (((BS*2+ev/4+iv)*lv/100+5));
 			case -1:
-				return (int) (((BS*2+ev/4+iv)*lv/100+5));
+				return (int) (((BS*2+ev/4+iv)*lv/100+5))*10/11;
 		}
 		return 0;
 	}
