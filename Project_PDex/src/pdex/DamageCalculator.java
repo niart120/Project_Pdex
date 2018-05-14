@@ -17,7 +17,7 @@ public class DamageCalculator {
 			while ((line = br.readLine()) != null) {
 				String[] tempData = line.split(",", 0);
 				for(int i=0;i<tempData.length;i++){
-					effectTable[i][j] = Integer.valueOf(tempData[i]);
+					effectTable[j][i] = Integer.valueOf(tempData[i]);
 				}
 				j++;
 			}
