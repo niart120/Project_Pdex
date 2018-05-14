@@ -98,19 +98,19 @@ public class Pokemon {
 		return (hBS*2+ev/4+iv)*lv/100+10+lv;
 	}
 	public int getAStat(int lv, int ev,int iv,int nc) {
-		return getStat(sBS,lv,ev,iv,nc);
+		return getStat(aBS,lv,ev,iv,nc);
 	}
 
 	public int getBStat(int lv, int ev,int iv,int nc) {
-		return getStat(sBS,lv,ev,iv,nc);
+		return getStat(bBS,lv,ev,iv,nc);
 	}
 
 	public int getCStat(int lv, int ev,int iv,int nc) {
-		return getStat(sBS,lv,ev,iv,nc);
+		return getStat(cBS,lv,ev,iv,nc);
 	}
 
 	public int getDStat(int lv, int ev,int iv,int nc) {
-		return getStat(sBS,lv,ev,iv,nc);
+		return getStat(dBS,lv,ev,iv,nc);
 	}
 
 	public int getSStat(int lv, int ev,int iv,int nc) {
