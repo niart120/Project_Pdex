@@ -48,7 +48,7 @@ public class DCFieldAtk extends DCFieldBase {
 					moveCB.show();
 				}else if(data.isMoveNameOnList(moveCB.getValue())) {
 					move = data.getMoveByName(moveCB.getValue());
-					setPower(move);
+					setPowerValue(move);
 				}else {
 					mvNames.clear();
 					mvNames.addAll(data.searchMoveByName(newValue));
@@ -63,15 +63,22 @@ public class DCFieldAtk extends DCFieldBase {
 		int e = Integer.parseInt(ev.getText());
 		int i = Integer.parseInt(iv.getText());
 		int n = (int) nature.getSelectedToggle().getUserData();
-
-		stat.setText(String.valueOf(poke.getAStat(l, e, i, n)));
+		if(isPhys) {
+			stat.setText(String.valueOf(poke.getAStat(l, e, i, n)));
+		}else {
+			stat.setText(String.valueOf(poke.getCStat(l, e, i, n)));
+		}
 	}
 
-	void setPower(Move move) {
+	void setPowerValue(Move move) {
 		power.setText(String.valueOf(move.getPower()));
 	}
 
 	public Move getMove() {
 		return move;
+	}
+
+	public TextField getPower() {
+		return this.power;
 	}
 }

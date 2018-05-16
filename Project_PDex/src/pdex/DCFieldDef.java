@@ -18,7 +18,11 @@ public class DCFieldDef extends DCFieldBase {
 		int he = Integer.parseInt(hEV.getText());
 		int hi = Integer.parseInt(hIV.getText());
 
-		stat.setText(String.valueOf(poke.getBStat(l, e, i, (int) nature.getSelectedToggle().getUserData())));
+		if(isPhys) {
+			stat.setText(String.valueOf(poke.getBStat(l, e, i, (int) nature.getSelectedToggle().getUserData())));
+		}else {
+			stat.setText(String.valueOf(poke.getDStat(l, e, i, (int) nature.getSelectedToggle().getUserData())));
+		}
 		hpStat.setText(String.valueOf(poke.getHStat(l, he, hi)));
 
 	}

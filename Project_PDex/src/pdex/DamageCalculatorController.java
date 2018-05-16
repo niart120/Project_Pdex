@@ -2,6 +2,8 @@ package pdex;
 
 import java.io.IOException;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -51,6 +53,15 @@ public class DamageCalculatorController{
 
 	public void initialize() {
 
+		atkController.getPower().textProperty().addListener(new ChangeListener<String>() {
+		    @Override
+		    public void changed(ObservableValue<? extends String> observable,String oldValue, String newValue) {
+		    	if(atkController.getMove()!=null) {
+		    		whenpowerchanged(atkController);
+		    		whenpowerchanged(defController);
+		    	}
+		    }
+		});
 		calc.setOnMouseClicked((e)->{
 			damage.setText("ダメージ:"+dm.getDamage(atkController.getMove(), atkController.getDcpoke(),defController.getDcpoke()));
 
@@ -61,5 +72,10 @@ public class DamageCalculatorController{
 	public void onBackButtonClicked(ActionEvent event) {
         TitleController.getInstance().show();
     }
+
+	private void whenpowerchanged(DCFieldBase dcfb) {
+		dcfb.setPhys(atkController.getMove().isPhys());
+		dcfb.setDCPoke();
+	}
 
 }

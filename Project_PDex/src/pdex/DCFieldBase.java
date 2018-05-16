@@ -25,9 +25,11 @@ public class DCFieldBase {
 	@FXML protected TextField stat;
 
 	protected Data data = new Data();
-	Pokemon p;
+	private Pokemon p;
 	private DCPoke dcpoke;
 	private ObservableList<String> names;
+
+	boolean isPhys = false;
 
 	void init() {
 		up.setUserData(1);
@@ -51,9 +53,7 @@ public class DCFieldBase {
 			names.add(poke.getName());
 		}
 		pokeCB.getSelectionModel().select(0);
-		p = data.getPokeByName(pokeCB.getValue());
-		setStat(p);
-		dcpoke = new DCPoke(p,Integer.valueOf(lv.getText()),Integer.valueOf(stat.getText()));
+		setDCPoke();
 
 		pokeCB.getEditor().setOnMouseClicked((e)->{
 			pokeCB.getSelectionModel().clearSelection();
@@ -73,9 +73,7 @@ public class DCFieldBase {
 					}
 					pokeCB.show();
 				}else if(data.isPokeNameOnList(pokeCB.getValue())) {
-					p = data.getPokeByName(pokeCB.getValue());
-		    		setStat(p);
-		    		dcpoke = new DCPoke(p,Integer.valueOf(lv.getText()),Integer.valueOf(stat.getText()));
+					setDCPoke();
 				}else {
 					names.clear();
 					names.addAll(data.searchPokeByName(newValue));
@@ -91,28 +89,20 @@ public class DCFieldBase {
 		    @Override
 		    public void changed(ObservableValue<? extends String> observable,String oldValue, String newValue) {
 		    	if(!"".equals(text.getText())&&data.isPokeNameOnList(pokeCB.getValue())){
-		    		p = data.getPokeByName(pokeCB.getValue());
-		    		setStat(p);
-		    		dcpoke = new DCPoke(p,Integer.valueOf(lv.getText()),Integer.valueOf(stat.getText()));
+		    		setDCPoke();
 				}
 		    }
 		});
 	}
 	void initRadioButton() {
 		up.setOnAction((e)->{
-			p = data.getPokeByName(pokeCB.getValue());
-    		setStat(p);
-    		dcpoke = new DCPoke(p,Integer.valueOf(lv.getText()),Integer.valueOf(stat.getText()));
+			setDCPoke();
 		});
 		neutral.setOnAction((e)->{
-			p = data.getPokeByName(pokeCB.getValue());
-    		setStat(p);
-    		dcpoke = new DCPoke(p,Integer.valueOf(lv.getText()),Integer.valueOf(stat.getText()));
+			setDCPoke();
 		});
 		down.setOnAction((e)->{
-			p = data.getPokeByName(pokeCB.getValue());
-    		setStat(p);
-    		dcpoke = new DCPoke(p,Integer.valueOf(lv.getText()),Integer.valueOf(stat.getText()));
+			setDCPoke();
 		});
 	}
 
@@ -120,5 +110,13 @@ public class DCFieldBase {
 	}
 	public DCPoke getDcpoke() {
 		return dcpoke;
+	}
+	public void setPhys(boolean isPhys) {
+		this.isPhys = isPhys;
+	}
+	public void setDCPoke() {
+		p = data.getPokeByName(pokeCB.getValue());
+		setStat(p);
+		dcpoke = new DCPoke(p,Integer.valueOf(lv.getText()),Integer.valueOf(stat.getText()));
 	}
 }
